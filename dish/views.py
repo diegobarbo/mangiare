@@ -36,3 +36,12 @@ def update_item(request, id):
         return redirect('dish:index')
     
     return render(request, 'dish/item-form.html', {'form': form, 'item': item})
+
+def delete_item(request, id):
+    item = Item.objects.get(id=id)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('dish:index')
+
+    return render(request, 'dish/item-delete.html', {'item': item})

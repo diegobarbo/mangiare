@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     'dish.apps.DishConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [

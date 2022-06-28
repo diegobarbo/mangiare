@@ -1,0 +1,46 @@
+{% extends 'dish/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    {% block content %}
+    {% for item in item_list %}
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="card" style="width:18rem;" src="{{ item.image }}" />
+        </div>
+        <div class="col-md-4">
+            <h3>{{ item.nome }}</h3>
+            <h5>{{ item.descricao }}</h5>
+            <h6>${{ item.preco }}</h6>
+
+
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'dish:detail' item.id %}" class="btn btn-success">Details</a>
+        </div>
+
+
+    </div>
+    {% endfor %}
+    {% endblock %}
+    <!-- <ul>
+        <li>
+            <a href="">{{ item.id }} -- {{ item.nome }}</a>
+        </li>
+    </ul> -->
+
+
+
+</body>
+
+</html>

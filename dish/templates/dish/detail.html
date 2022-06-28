@@ -1,0 +1,19 @@
+{% extends 'dish/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ item_detail.image }}">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ item_detail.nome }}</h1>
+            <h2>{{ item_detail.descricao }}</h2>
+            <h3>$ {{ item_detail.preco }}</h3>
+            <a href="{% url 'dish:delete_item' item_detail.id %}">Delete</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

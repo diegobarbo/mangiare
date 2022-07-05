@@ -3,12 +3,19 @@ from django.shortcuts import redirect, render
 from .models import Item
 from django.template import loader
 from .forms import ItemForm
+from django.views.generic.list import ListView
 
 
 def index(request):
     item_list = Item.objects.all()    
     context = {'item_list': item_list,}
     return render(request, 'dish/index.html', context)
+
+
+class IndexClassView(ListView):
+    model = Item
+    template_name = 'dish/index.html'
+    context_object_name = 'item_list'
 
 def item(request):
     return HttpResponse('isso é uma view')
